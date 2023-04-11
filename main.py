@@ -74,6 +74,3 @@ def analysis():
     plt.ylabel("Percentage")
     plt.title("Overall results")
     plt.show()
-
-
-analysis()
