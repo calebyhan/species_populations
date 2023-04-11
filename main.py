@@ -1,6 +1,7 @@
 import pandas as pd
 import json
 import matplotlib.pyplot as plt
+import math
 
 
 def get_data():
@@ -26,20 +27,17 @@ def plots():
         x = []
         y = []
         for index, count in enumerate(data[i]["counts"]):
-            print(count)
-            if count != "nan":
+            if not math.isnan(count):
                 x.append(index + 1950)
                 y.append(count)
-
-        print(x, y)
 
         plt.xlim(1950, 2020)
         plt.plot(x, y)
         plt.xlabel("Years")
         plt.ylabel("Count")
-        plt.title("Population counts vs. Years")
+        plt.title(f"Population counts vs. Years (ID: {i})")
         plt.savefig(f"data/plots/{i}.png")
-        break
+        plt.clf()
 
 
 plots()
